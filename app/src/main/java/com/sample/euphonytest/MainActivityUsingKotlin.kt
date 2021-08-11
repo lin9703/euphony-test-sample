@@ -8,15 +8,16 @@ import euphony.lib.transmitter.EuTxManager
 
 class MainActivityUsingKotlin : AppCompatActivity() {
 
-    private lateinit var mTxManager: EuTxManager
+    private val mTxManager: EuTxManager by lazy {
+        EuTxManager()
+    }
+
     private var isSpeakOn = false
     private lateinit var soundControlButton: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-        transmitterSetting()
 
         soundControlButton = findViewById(R.id.button_sound_control)
         soundControlButton.setOnClickListener(soundButtonClickListener())
@@ -25,9 +26,6 @@ class MainActivityUsingKotlin : AppCompatActivity() {
         soundOff()
     }
 
-    private fun transmitterSetting() {
-        mTxManager = EuTxManager()
-    }
 
     private fun soundButtonClickListener(): View.OnClickListener {
         return View.OnClickListener { changeSoundStatus() }
