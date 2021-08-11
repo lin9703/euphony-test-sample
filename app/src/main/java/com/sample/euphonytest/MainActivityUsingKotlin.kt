@@ -30,7 +30,7 @@ class MainActivityUsingKotlin : AppCompatActivity() {
     }
 
     private fun soundButtonClickListener(): View.OnClickListener {
-        return View.OnClickListener { view: View? -> changeSoundStatus() }
+        return View.OnClickListener { changeSoundStatus() }
     }
 
     private fun changeSoundStatus() {
